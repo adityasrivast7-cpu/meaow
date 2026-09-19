@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Happy Birthday Navya!</title>
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Canvas Confetti CDN -->
+  <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.3/dist/confetti.browser.min.js"></script>
+  <!-- Custom Styles -->
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body class="relative text-gray-800 selection:bg-rose-200 selection:text-rose-800">
+
+  <!-- Floating Balloons Container -->
+  <div id="balloon-container" class="fixed inset-0 pointer-events-none overflow-hidden z-0"></div>
+
+  <main class="relative z-10 min-h-screen flex flex-col justify-between pt-24 pb-16 px-4 sm:px-6 max-w-5xl mx-auto">
+    
+    <!-- Hero Section -->
+    <div class="text-center space-y-6 pt-6">
+      <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-rose-100/90 text-rose-700 text-xs sm:text-sm font-semibold tracking-wide shadow-sm border border-rose-200/60 animate-bounce">
+        <span>🎉</span> IT'S A VERY SPECIAL CELEBRATION!
+      </div>
+
+      <h1 class="font-serif-luxury text-4xl sm:text-6xl md:text-7xl font-bold tracking-tight text-gray-900 leading-tight">
+        Happy Birthday,<br>
+        <span class="bg-gradient-to-r from-rose-500 via-pink-500 to-amber-500 bg-clip-text text-transparent underline decoration-rose-300 decoration-wavy decoration-2" data-config="name">Navya</span>! 🎂✨
+      </h1>
+
+      <p class="max-w-2xl mx-auto text-base sm:text-xl text-gray-600 font-light leading-relaxed">
+        Today is dedicated exclusively to celebrating the world's most wonderful human being. 
+        A curated 5-chapter journey filled with memories, sweet wishes, cake, and a grand surprise!
+      </p>
+
+      <!-- Mystery Unlock / Start Journey Card -->
+      <div class="max-w-md mx-auto pt-4">
+        <div id="unlock-card" class="glass-card rounded-3xl p-6 sm:p-8 text-center border border-white/60 shadow-xl transition-all hover:shadow-2xl">
+          <div class="w-16 h-16 sm:w-20 sm:h-20 mx-auto rounded-full bg-gradient-to-tr from-rose-400 to-amber-300 flex items-center justify-center text-3xl sm:text-4xl shadow-lg mb-4 gift-box-bounce">
+            💌
+          </div>
+          <h2 class="text-xl sm:text-2xl font-bold text-gray-800 font-serif-luxury mb-2">Your Birthday Keycard</h2>
+          <p class="text-xs sm:text-sm text-gray-500 mb-6">Click to officially unlock your birthday celebration and unleash the confetti!</p>
+          
+          <button id="unlock-btn" class="glow-btn w-full py-3.5 px-6 bg-gradient-to-r from-rose-500 to-pink-500 hover:from-rose-600 hover:to-pink-600 text-white font-semibold rounded-2xl shadow-lg hover:shadow-rose-300 hover:scale-[1.02] active:scale-98 transition flex items-center justify-center gap-2 text-base sm:text-lg">
+            <span>✨</span> Unlock The Magic <span>✨</span>
+          </button>
+
+          <!-- Secret Message Revealed after Unlock -->
+          <div id="unlocked-msg" class="hidden mt-6 pt-5 border-t border-rose-100 text-left space-y-3">
+            <div class="p-3 bg-rose-50/80 rounded-2xl border border-rose-100">
+              <p class="text-xs font-bold uppercase tracking-wider text-rose-600 mb-1">🎉 Access Granted</p>
+              <p class="text-sm text-gray-700 font-handwriting text-lg leading-snug">
+                "Another trip around the sun, and you just keep getting more radiant. Ready for chapter 1?"
+              </p>
+            </div>
+            <a href="page 2.html" class="w-full inline-flex items-center justify-center gap-2 py-3 px-6 rounded-xl bg-amber-500 hover:bg-amber-600 text-white font-bold text-sm shadow-md transition hover:scale-102">
+              Begin Journey: Chapter 1 (Memories) ➔
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 5 Chapters Roadmap Cards -->
+    <div class="mt-16 space-y-4">
+      <h3 class="text-center font-serif-luxury text-xl font-bold text-gray-800">
+        Your 5-Part Birthday Adventure
+      </h3>
+      
+      <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-3 sm:gap-4">
+        <!-- Card 1 -->
+        <div class="glass-card rounded-2xl p-4 text-center border-2 border-rose-300 bg-rose-50/60 shadow-sm">
+          <div class="text-2xl mb-1">🎈</div>
+          <h4 class="font-bold text-xs sm:text-sm text-gray-800">Ch. 1: Welcome</h4>
+          <p class="text-[11px] text-gray-500 mt-1">The Birthday Keycard & Sparkles</p>
+        </div>
+
+        <!-- Card 2 -->
+        <a href="page 2.html" class="glass-card rounded-2xl p-4 text-center hover:bg-white hover:shadow-md transition group">
+          <div class="text-2xl mb-1 group-hover:scale-110 transition">📸</div>
+          <h4 class="font-bold text-xs sm:text-sm text-gray-800 group-hover:text-rose-600">Ch. 2: Memories</h4>
+          <p class="text-[11px] text-gray-500 mt-1">Polaroids & Story Timeline</p>
+        </a>
+
+        <!-- Card 3 -->
+        <a href="page 3.html" class="glass-card rounded-2xl p-4 text-center hover:bg-white hover:shadow-md transition group">
+          <div class="text-2xl mb-1 group-hover:scale-110 transition">🎂</div>
+          <h4 class="font-bold text-xs sm:text-sm text-gray-800 group-hover:text-rose-600">Ch. 3: The Cake</h4>
+          <p class="text-[11px] text-gray-500 mt-1">Blow Candles & Make a Wish</p>
+        </a>
+
+        <!-- Card 4 -->
+        <a href="page 4.html" class="glass-card rounded-2xl p-4 text-center hover:bg-white hover:shadow-md transition group">
+          <div class="text-2xl mb-1 group-hover:scale-110 transition">💌</div>
+          <h4 class="font-bold text-xs sm:text-sm text-gray-800 group-hover:text-rose-600">Ch. 4: Love Wall</h4>
+          <p class="text-[11px] text-gray-500 mt-1">Heartfelt Letter Envelopes</p>
+        </a>
+
+        <!-- Card 5 -->
+        <a href="page 5.html" class="glass-card rounded-2xl p-4 text-center hover:bg-white hover:shadow-md transition group col-span-2 sm:col-span-1">
+          <div class="text-2xl mb-1 group-hover:scale-110 transition">🎁</div>
+          <h4 class="font-bold text-xs sm:text-sm text-gray-800 group-hover:text-rose-600">Ch. 5: Grand Reveal</h4>
+          <p class="text-[11px] text-gray-500 mt-1">Mystery Box & Keepsake</p>
+        </a>
+      </div>
+    </div>
+
+    <!-- Quick Footer -->
+    <footer class="mt-14 text-center text-xs text-gray-400">
+      Crafted with endless love for <span data-config="name">Navya</span>'s Birthday celebration. Tap ⚙️ to personalize anytime.
+    </footer>
+
+  </main>
+
+  <script src="js/config.js"></script>
+  <script src="js/main.js"></script>
+  <script>
+    const unlockBtn = document.getElementById("unlock-btn");
+    const unlockedMsg = document.getElementById("unlocked-msg");
+
+    unlockBtn.addEventListener("click", () => {
+      triggerGrandConfetti();
+      sounds.playChime();
+      unlockBtn.innerHTML = "✨ Welcome to Your Special Day! ✨";
+      unlockBtn.classList.add("bg-emerald-500");
+      unlockBtn.classList.remove("from-rose-500", "to-pink-500");
+      unlockedMsg.classList.remove("hidden");
+    });
+  </script>
+</body>
+</html>

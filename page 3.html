@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Chapter 3: The Virtual Cake 🎂 - Happy Birthday!</title>
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Canvas Confetti CDN -->
+  <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.3/dist/confetti.browser.min.js"></script>
+  <!-- Custom Styles -->
+  <link rel="stylesheet" href="css/style.css">
+  <style>
+    /* Custom SVG Cake & Candles Styling */
+    .cake-base {
+      filter: drop-shadow(0 15px 25px rgba(244, 63, 94, 0.18));
+    }
+  </style>
+</head>
+<body class="relative text-gray-800 selection:bg-rose-200 selection:text-rose-800">
+
+  <div id="balloon-container" class="fixed inset-0 pointer-events-none overflow-hidden z-0"></div>
+
+  <main class="relative z-10 min-h-screen pt-24 pb-20 px-4 sm:px-6 max-w-4xl mx-auto space-y-12">
+    
+    <!-- Header -->
+    <div class="text-center space-y-3">
+      <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-rose-100 text-rose-700 text-xs sm:text-sm font-semibold tracking-wide shadow-sm">
+        <span>🎂</span> CHAPTER 3: TIME TO CELEBRATE
+      </div>
+      <h1 class="font-serif-luxury text-4xl sm:text-5xl md:text-6xl font-bold text-gray-900">
+        Make a Wish & Blow The Candles
+      </h1>
+      <p class="max-w-xl mx-auto text-sm sm:text-base text-gray-600 font-light">
+        Close your eyes, make the deepest wish in your heart, and blow out the candles below!
+      </p>
+    </div>
+
+    <!-- Interactive Cake Stage -->
+    <div class="glass-card rounded-3xl p-6 sm:p-12 text-center relative overflow-hidden shadow-2xl border border-white/80">
+      
+      <!-- Ambient Sparkles -->
+      <div class="absolute top-4 left-6 text-2xl animate-pulse">✨</div>
+      <div class="absolute top-8 right-8 text-2xl animate-pulse">🌟</div>
+      <div class="absolute bottom-6 left-12 text-2xl animate-bounce">🎈</div>
+
+      <!-- The Cake Presentation Area -->
+      <div class="relative w-72 sm:w-80 h-72 sm:h-80 mx-auto flex flex-col items-center justify-end pb-4">
+        
+        <!-- Candles Row -->
+        <div class="flex items-end justify-center gap-3 sm:gap-4 z-20 mb-[-6px]">
+          <div class="candle flex flex-col items-center cursor-pointer group" onclick="blowSingleCandle(this)">
+            <div class="relative">
+              <div class="candle-flame w-4 h-6 rounded-full bg-gradient-to-t from-amber-500 via-amber-300 to-yellow-100 shadow-[0_0_15px_#f59e0b]"></div>
+              <div class="smoke-puff"></div>
+            </div>
+            <div class="w-0.5 h-2 bg-gray-700"></div>
+            <div class="w-3.5 h-12 bg-gradient-to-b from-pink-400 to-rose-400 rounded-sm shadow-sm border-t border-white/50"></div>
+          </div>
+
+          <div class="candle flex flex-col items-center cursor-pointer group" onclick="blowSingleCandle(this)">
+            <div class="relative">
+              <div class="candle-flame w-4 h-7 rounded-full bg-gradient-to-t from-amber-500 via-amber-300 to-yellow-100 shadow-[0_0_20px_#f59e0b]"></div>
+              <div class="smoke-puff"></div>
+            </div>
+            <div class="w-0.5 h-2 bg-gray-700"></div>
+            <div class="w-4 h-16 bg-gradient-to-b from-amber-300 to-amber-500 rounded-sm shadow-sm border-t border-white/50"></div>
+          </div>
+
+          <div class="candle flex flex-col items-center cursor-pointer group" onclick="blowSingleCandle(this)">
+            <div class="relative">
+              <div class="candle-flame w-4 h-6 rounded-full bg-gradient-to-t from-amber-500 via-amber-300 to-yellow-100 shadow-[0_0_15px_#f59e0b]"></div>
+              <div class="smoke-puff"></div>
+            </div>
+            <div class="w-0.5 h-2 bg-gray-700"></div>
+            <div class="w-3.5 h-12 bg-gradient-to-b from-indigo-400 to-purple-400 rounded-sm shadow-sm border-t border-white/50"></div>
+          </div>
+
+          <div class="candle flex flex-col items-center cursor-pointer group" onclick="blowSingleCandle(this)">
+            <div class="relative">
+              <div class="candle-flame w-4 h-7 rounded-full bg-gradient-to-t from-amber-500 via-amber-300 to-yellow-100 shadow-[0_0_18px_#f59e0b]"></div>
+              <div class="smoke-puff"></div>
+            </div>
+            <div class="w-0.5 h-2 bg-gray-700"></div>
+            <div class="w-4 h-14 bg-gradient-to-b from-rose-300 to-pink-500 rounded-sm shadow-sm border-t border-white/50"></div>
+          </div>
+
+          <div class="candle flex flex-col items-center cursor-pointer group" onclick="blowSingleCandle(this)">
+            <div class="relative">
+              <div class="candle-flame w-4 h-6 rounded-full bg-gradient-to-t from-amber-500 via-amber-300 to-yellow-100 shadow-[0_0_15px_#f59e0b]"></div>
+              <div class="smoke-puff"></div>
+            </div>
+            <div class="w-0.5 h-2 bg-gray-700"></div>
+            <div class="w-3.5 h-11 bg-gradient-to-b from-amber-200 to-yellow-500 rounded-sm shadow-sm border-t border-white/50"></div>
+          </div>
+        </div>
+
+        <!-- 3-Tier Illustrated Cake -->
+        <div class="w-full flex flex-col items-center cake-base">
+          <!-- Top Tier -->
+          <div class="w-40 sm:w-44 h-16 bg-gradient-to-r from-rose-200 via-pink-100 to-rose-200 rounded-t-2xl relative shadow-md border-b-4 border-rose-300 flex items-center justify-center">
+            <!-- Frosting Drips -->
+            <div class="absolute -bottom-2 w-full flex justify-around px-2 text-rose-400 text-xs">
+              <span>🍓</span><span>✨</span><span>🍓</span><span>✨</span>
+            </div>
+          </div>
+
+          <!-- Middle Tier -->
+          <div class="w-56 sm:w-64 h-20 bg-gradient-to-r from-amber-100 via-rose-100 to-amber-100 relative shadow-md border-b-4 border-amber-200 flex items-center justify-center">
+            <div class="font-serif-luxury text-xs tracking-widest text-rose-600 font-bold uppercase">
+              Happy Birthday <span data-config="name">Navya</span>
+            </div>
+          </div>
+
+          <!-- Bottom Tier -->
+          <div class="w-64 sm:w-72 h-20 bg-gradient-to-r from-rose-300 via-pink-200 to-rose-300 rounded-b-xl relative shadow-lg flex items-center justify-around px-4">
+            <span class="text-sm">🧁</span>
+            <span class="text-sm">🌸</span>
+            <span class="text-sm">🍓</span>
+            <span class="text-sm">🌸</span>
+            <span class="text-sm">🧁</span>
+          </div>
+
+          <!-- Cake Plate / Stand -->
+          <div class="w-72 sm:w-80 h-3 bg-gradient-to-r from-gray-200 via-white to-gray-200 rounded-full shadow-md mt-1 border border-gray-200"></div>
+        </div>
+
+      </div>
+
+      <!-- Action Button & Status -->
+      <div class="mt-8 space-y-4">
+        <button id="blow-btn" onclick="blowAllCandles()" class="glow-btn px-8 py-3.5 rounded-full bg-gradient-to-r from-rose-500 to-pink-500 text-white font-bold text-base sm:text-lg shadow-lg hover:shadow-rose-300 hover:scale-105 active:scale-95 transition flex items-center justify-center gap-2 mx-auto">
+          <span>💨</span> Blow Out All Candles! <span>✨</span>
+        </button>
+
+        <p id="cake-instruction" class="text-xs sm:text-sm text-gray-500">
+          Tip: Tap individual candles or click the big button to blow them all at once!
+        </p>
+
+        <!-- Wish Reveal Card (Hidden until blown) -->
+        <div id="wish-unlocked" class="hidden max-w-md mx-auto p-5 rounded-2xl bg-amber-50 border border-amber-200 text-center space-y-3 animate-fade-in">
+          <p class="text-base font-bold text-amber-800">🎉 YAAAAY! ALL CANDLES BLOWN OUT! 🥳</p>
+          <p class="text-xs text-amber-700">Your wish has been registered with the universe. Now seal it in the starry sky below!</p>
+          <button onclick="openWishModal()" class="px-5 py-2.5 rounded-xl bg-amber-500 hover:bg-amber-600 text-white font-semibold text-xs shadow-md transition">
+            ✨ Cast Your Secret Wish Into The Stars 🌟
+          </button>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Starry Wish Sky Section -->
+    <section class="glass-card bg-slate-900 text-white rounded-3xl p-6 sm:p-10 relative overflow-hidden shadow-2xl border border-slate-700">
+      <div class="absolute inset-0 overflow-hidden pointer-events-none">
+        <span class="twinkle-star absolute top-6 left-12 text-yellow-200 text-xs">⭐</span>
+        <span class="twinkle-star absolute top-14 right-20 text-yellow-100 text-sm">✨</span>
+        <span class="twinkle-star absolute bottom-12 left-1/4 text-yellow-300 text-xs">🌟</span>
+
+        <span class="twinkle-star absolute bottom-8 right-1/3 text-yellow-200 text-sm">✨</span>
+      </div>
+
+      <div class="relative z-10 text-center space-y-4 max-w-xl mx-auto">
+        <span class="px-3 py-1 rounded-full bg-slate-800 text-amber-300 text-xs font-semibold uppercase tracking-wider border border-slate-700">
+          Enchanted Sky
+        </span>
+        <h2 class="font-serif-luxury text-2xl sm:text-3xl font-bold text-white">
+          The Sky of Birthday Wishes
+        </h2>
+        <p class="text-xs sm:text-sm text-slate-300 font-light">
+          Any wish you write here gets cast as a permanent glowing star in your birthday galaxy.
+        </p>
+
+        <form id="sky-wish-form" onsubmit="submitSkyWish(event)" class="pt-2 flex flex-col sm:flex-row gap-2">
+          <input type="text" id="sky-wish-input" placeholder="Type your birthday wish here..." required class="flex-1 px-4 py-3 rounded-2xl bg-slate-800/90 border border-slate-700 text-white placeholder-slate-400 text-sm focus:outline-none focus:ring-2 focus:ring-amber-400">
+          <button type="submit" class="px-6 py-3 rounded-2xl bg-gradient-to-r from-amber-400 to-amber-500 text-slate-900 font-bold text-sm hover:scale-105 active:scale-95 transition shadow-lg shadow-amber-500/20">
+            Release Wish ✨
+          </button>
+        </form>
+
+        <!-- Wish Stars Container -->
+        <div id="released-wishes" class="pt-4 flex flex-wrap gap-2 justify-center">
+          <div class="px-3 py-1 rounded-full bg-slate-800/80 border border-slate-700 text-xs text-amber-200 flex items-center gap-1.5 shadow-sm">
+            <span>🌟</span> "Unlimited happiness and good health!"
+          </div>
+          <div class="px-3 py-1 rounded-full bg-slate-800/80 border border-slate-700 text-xs text-pink-200 flex items-center gap-1.5 shadow-sm">
+            <span>✨</span> "More spontaneous vacations together!"
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Bottom Navigation Controls -->
+    <div class="flex flex-col sm:flex-row items-center justify-between gap-4 pt-6 border-t border-rose-200/60">
+      <a href="page 2.html" class="w-full sm:w-auto px-6 py-3 rounded-2xl bg-white border border-gray-200 text-gray-700 font-semibold text-sm hover:bg-gray-50 flex items-center justify-center gap-2 transition">
+        ⬅️ Back to Memories
+      </a>
+      <a href="page 4.html" class="w-full sm:w-auto px-8 py-3.5 rounded-2xl bg-gradient-to-r from-rose-500 to-pink-500 text-white font-semibold text-sm shadow-lg hover:shadow-rose-300 hover:scale-105 active:scale-95 flex items-center justify-center gap-2 transition">
+        Next: Read Heartfelt Wishes 💌 ➔
+      </a>
+    </div>
+
+  </main>
+
+  <script src="js/config.js"></script>
+  <script src="js/main.js"></script>
+  <script>
+    let blownCount = 0;
+    const totalCandles = 5;
+
+    function blowSingleCandle(candleEl) {
+      const flame = candleEl.querySelector(".candle-flame");
+      const smoke = candleEl.querySelector(".smoke-puff");
+
+      if (!flame.classList.contains("blown-out")) {
+        flame.classList.add("blown-out");
+        if (smoke) smoke.classList.add("active");
+        sounds.playBlowSound();
+        blownCount++;
+        triggerConfetti({ particleCount: 30, spread: 50 });
+
+        if (blownCount >= totalCandles) {
+          celebrateAllBlown();
+        }
+      }
+    }
+
+    function blowAllCandles() {
+      document.querySelectorAll(".candle-flame").forEach(f => f.classList.add("blown-out"));
+      document.querySelectorAll(".smoke-puff").forEach(s => s.classList.add("active"));
+      sounds.playBlowSound();
+      blownCount = totalCandles;
+      celebrateAllBlown();
+    }
+
+    function celebrateAllBlown() {
+      triggerGrandConfetti();
+      sounds.playChime();
+      const btn = document.getElementById("blow-btn");
+      btn.innerHTML = "✨ All Candles Blown Out! ✨";
+      btn.classList.remove("from-rose-500", "to-pink-500");
+      btn.classList.add("bg-emerald-500");
+      document.getElementById("wish-unlocked").classList.remove("hidden");
+    }
+
+    function openWishModal() {
+      document.getElementById("sky-wish-input").focus();
+      document.getElementById("sky-wish-input").scrollIntoView({ behavior: 'smooth' });
+    }
+
+    function submitSkyWish(e) {
+      e.preventDefault();
+      const input = document.getElementById("sky-wish-input");
+      const text = input.value.trim();
+      if (!text) return;
+
+      const container = document.getElementById("released-wishes");
+      const chip = document.createElement("div");
+      chip.className = "px-3 py-1 rounded-full bg-amber-500/20 border border-amber-400 text-xs text-amber-200 flex items-center gap-1.5 shadow-md animate-bounce";
+      chip.innerHTML = `<span>⭐</span> "${text}"`;
+      container.prepend(chip);
+
+      sounds.playChime();
+      triggerConfetti({ particleCount: 50 });
+      input.value = "";
+    }
+  </script>
+</body>
+</html>

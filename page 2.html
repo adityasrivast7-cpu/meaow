@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Chapter 2: Memory Lane 📸 - Happy Birthday!</title>
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Canvas Confetti CDN -->
+  <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.3/dist/confetti.browser.min.js"></script>
+  <!-- Custom Styles -->
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body class="relative text-gray-800 selection:bg-rose-200 selection:text-rose-800">
+
+  <div id="balloon-container" class="fixed inset-0 pointer-events-none overflow-hidden z-0"></div>
+
+  <main class="relative z-10 min-h-screen pt-24 pb-20 px-4 sm:px-6 max-w-5xl mx-auto space-y-16">
+    
+    <!-- Header -->
+    <div class="text-center space-y-3">
+      <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-rose-100 text-rose-700 text-xs sm:text-sm font-semibold tracking-wide shadow-sm">
+        <span>📸</span> CHAPTER 2: MEMORY LANE
+      </div>
+      <h1 class="font-serif-luxury text-4xl sm:text-5xl md:text-6xl font-bold text-gray-900">
+        Our Favorite Moments Together
+      </h1>
+      <p class="max-w-xl mx-auto text-sm sm:text-base text-gray-600 font-light">
+        A scrapbook of all the laughter, spontaneous trips, and beautiful memories that make life brighter with <span data-config="name" class="font-semibold text-rose-500">You</span>.
+      </p>
+    </div>
+
+    <!-- Polaroid Photo Gallery Wall -->
+    <section class="space-y-6">
+      <div class="flex items-center justify-between border-b border-rose-200/60 pb-3">
+        <h2 class="font-serif-luxury text-2xl font-bold text-gray-800 flex items-center gap-2">
+          <span>🎞️</span> Polaroid Scrapbook
+        </h2>
+        <span class="text-xs text-rose-500 font-medium bg-rose-50 px-3 py-1 rounded-full">Click any photo to zoom</span>
+      </div>
+
+      <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8 pt-4">
+        
+        <!-- Polaroid Card 1 -->
+        <!-- ✏️ EDIT HERE: Swap image src with your own photo -->
+        <div class="polaroid-card -rotate-2 cursor-pointer group" onclick="openLightbox('photos/b.jpeg', 'The Golden Hour Laughs 🌅', 'That unforgettable day when we laughed so hard our stomachs hurt!')">
+          <div class="polaroid-tape"></div>
+          <div class="overflow-hidden rounded bg-gray-100 aspect-square mb-3">
+            <img src="photos/b.jpeg" alt="Special memory" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
+          </div>
+          <p class="font-handwriting text-xl text-gray-700 text-center">The Golden Hour Laughs 🌅</p>
+          <p class="text-[11px] text-gray-400 text-center mt-1">That unforgettable day!</p>
+        </div>
+
+        <!-- Polaroid Card 2 -->
+        <!-- ✏️ EDIT HERE: Swap image src with your own photo -->
+        <div class="polaroid-card rotate-3 cursor-pointer group" onclick="openLightbox('photos/f.jpeg', 'Pure Celebration Energy 🎈', 'Every single day feels like a party whenever you are around!')">
+          <div class="polaroid-tape"></div>
+          <div class="overflow-hidden rounded bg-gray-100 aspect-square mb-3">
+            <img src="photos/f.jpeg" alt="Party vibes" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
+          </div>
+          <p class="font-handwriting text-xl text-gray-700 text-center">Pure Celebration Energy 🎈</p>
+          <p class="text-[11px] text-gray-400 text-center mt-1">Unmatched good vibes</p>
+        </div>
+
+        <!-- Polaroid Card 3 -->
+        <!-- ✏️ EDIT HERE: Swap image src with your own photo -->
+        <div class="polaroid-card -rotate-1 cursor-pointer group" onclick="openLightbox('photos/E.jpeg', 'Sweet Moments & Cake 🍰', 'Because life is too short not to eat the extra slice of cake.')">
+          <div class="polaroid-tape"></div>
+          <div class="overflow-hidden rounded bg-gray-100 aspect-square mb-3">
+            <img src="photos/E.jpeg" alt="Birthday sweetness" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
+          </div>
+          <p class="font-handwriting text-xl text-gray-700 text-center">Sweet Moments & Cake 🍰</p>
+          <p class="text-[11px] text-gray-400 text-center mt-1">Always craving sweets with you</p>
+        </div>
+
+        <!-- Polaroid Card 4 -->
+        <!-- ✏️ EDIT HERE: Swap image src with your own photo -->
+        <div class="polaroid-card rotate-2 cursor-pointer group" onclick="openLightbox('photos/c.jpeg', 'The Spontaneous Trip 🌊', 'Breeze in our hair, music blasting, and zero worries.')">
+          <div class="polaroid-tape"></div>
+          <div class="overflow-hidden rounded bg-gray-100 aspect-square mb-3">
+            <img src="photos/c.jpeg" alt="Beach getaway" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
+          </div>
+          <p class="font-handwriting text-xl text-gray-700 text-center">The Spontaneous Trip 🌊</p>
+          <p class="text-[11px] text-gray-400 text-center mt-1">Best roadtrip playlist ever</p>
+        </div>
+
+        <!-- Polaroid Card 5 -->
+        <!-- ✏️ EDIT HERE: Swap image src with your own photo -->
+        <div class="polaroid-card -rotate-3 cursor-pointer group" onclick="openLightbox('photos/d.jpeg', 'Your Trademark Smile ✨', 'The smile that lights up every room instantly.')">
+          <div class="polaroid-tape"></div>
+          <div class="overflow-hidden rounded bg-gray-100 aspect-square mb-3">
+            <img src="photos/d.jpeg" alt="Beautiful smile" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
+          </div>
+          <p class="font-handwriting text-xl text-gray-700 text-center">Your Trademark Smile ✨</p>
+          <p class="text-[11px] text-gray-400 text-center mt-1">Never stop smiling</p>
+        </div>
+
+        <!-- Polaroid Card 6 -->
+        <!-- ✏️ EDIT HERE: Swap image src with your own photo -->
+        <div class="polaroid-card rotate-1 cursor-pointer group" onclick="openLightbox('photos/a.jpeg', 'Here is to the Future 🥂', 'To all the upcoming adventures waiting for us!')">
+          <div class="polaroid-tape"></div>
+          <div class="overflow-hidden rounded bg-gray-100 aspect-square mb-3">
+            <img src="photos/a.jpeg" alt="Celebration toast" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
+          </div>
+          <p class="font-handwriting text-xl text-gray-700 text-center">Here is to the Future 🥂</p>
+          <p class="text-[11px] text-gray-400 text-center mt-1">The best is yet to come!</p>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- Interactive Story Timeline -->
+    <section class="space-y-8">
+      <div class="text-center space-y-2">
+        <h2 class="font-serif-luxury text-3xl font-bold text-gray-800">
+          Milestones & Chapters
+        </h2>
+        <p class="text-xs sm:text-sm text-gray-500">The journey of how each moment brought us here.</p>
+      </div>
+
+      <div class="relative border-l-2 border-rose-300 ml-4 sm:ml-32 space-y-10 pl-6 sm:pl-8">
+        
+        <!-- Timeline Item 1 -->
+        <div class="relative group">
+          <div class="absolute -left-[33px] sm:-left-[41px] top-1 w-8 h-8 rounded-full bg-rose-500 text-white flex items-center justify-center text-sm font-bold shadow-md ring-4 ring-rose-100">
+            🌱
+          </div>
+          <div class="glass-card rounded-2xl p-5 sm:p-6 transition hover:shadow-lg">
+            <span class="text-xs font-semibold uppercase tracking-wider text-rose-500">Where It All Began</span>
+            <h3 class="text-lg sm:text-xl font-bold text-gray-800 font-serif-luxury mt-1">The First Hello</h3>
+            <p class="text-sm text-gray-600 mt-2 leading-relaxed">
+              Who would have known that a simple introduction would blossom into one of the most treasured connections of my life? From minute one, your warmth was unforgettable.
+            </p>
+          </div>
+        </div>
+
+        <!-- Timeline Item 2 -->
+        <div class="relative group">
+          <div class="absolute -left-[33px] sm:-left-[41px] top-1 w-8 h-8 rounded-full bg-amber-500 text-white flex items-center justify-center text-sm font-bold shadow-md ring-4 ring-amber-100">
+            ☕
+          </div>
+          <div class="glass-card rounded-2xl p-5 sm:p-6 transition hover:shadow-lg">
+            <span class="text-xs font-semibold uppercase tracking-wider text-amber-600">The Long-Hour Night Chat</span>
+            <h3 class="text-lg sm:text-xl font-bold text-gray-800 font-serif-luxury mt-1">Talking About Everything In Middle Of The Night</h3>
+            <p class="text-sm text-gray-600 mt-2 leading-relaxed">
+              The night getting cold, but the conversation only got hotter. That was the day I realized I could talk to you about absolutely anything for hours without running out of stories.
+            </p>
+          </div>
+        </div>
+
+        <!-- Timeline Item 3 -->
+        <div class="relative group">
+          <div class="absolute -left-[33px] sm:-left-[41px] top-1 w-8 h-8 rounded-full bg-purple-500 text-white flex items-center justify-center text-sm font-bold shadow-md ring-4 ring-purple-100">
+            🗺️
+          </div>
+          <div class="glass-card rounded-2xl p-5 sm:p-6 transition hover:shadow-lg">
+            <span class="text-xs font-semibold uppercase tracking-wider text-purple-600">The Wild Adventure</span>
+            <h3 class="text-lg sm:text-xl font-bold text-gray-800 font-serif-luxury mt-1">Scooty Diaries (Dancing with the Rain)</h3>
+            <p class="text-sm text-gray-600 mt-2 leading-relaxed">
+              We rode the scooty as the rain began to pour, and two souls laughed together, enjoying every drop more.
+            </p>
+          </div>
+        </div>
+
+        <!-- Timeline Item 4 -->
+        <div class="relative group">
+          <div class="absolute -left-[33px] sm:-left-[41px] top-1 w-8 h-8 rounded-full bg-rose-600 text-white flex items-center justify-center text-sm font-bold shadow-md ring-4 ring-rose-200">
+            🎂
+          </div>
+          <div class="glass-card rounded-2xl p-5 sm:p-6 border-2 border-rose-300 bg-rose-50/50 shadow-md">
+            <span class="text-xs font-bold uppercase tracking-wider text-rose-600">TODAY & ETERNALLY</span>
+            <h3 class="text-lg sm:text-xl font-bold text-gray-800 font-serif-luxury mt-1">Celebrating Your Best Year Yet!</h3>
+            <p class="text-sm text-gray-700 mt-2 leading-relaxed">
+              Another milestone, another chapter in your incredible story. You deserve the world and then some!
+            </p>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- Bottom Navigation Controls -->
+    <div class="flex flex-col sm:flex-row items-center justify-between gap-4 pt-8 border-t border-rose-200/60">
+      <a href="page 1.html" class="w-full sm:w-auto px-6 py-3 rounded-2xl bg-white border border-gray-200 text-gray-700 font-semibold text-sm hover:bg-gray-50 flex items-center justify-center gap-2 transition">
+        ⬅️ Back to Welcome
+      </a>
+      <a href="page 3.html" class="w-full sm:w-auto px-8 py-3.5 rounded-2xl bg-gradient-to-r from-rose-500 to-pink-500 text-white font-semibold text-sm shadow-lg hover:shadow-rose-300 hover:scale-105 active:scale-95 flex items-center justify-center gap-2 transition">
+        Next: Blow Out The Cake Candles! 🎂 ➔
+      </a>
+    </div>
+
+  </main>
+
+  <!-- Photo Lightbox Modal -->
+  <div id="lightbox" class="fixed inset-0 z-50 hidden bg-black/80 backdrop-blur-md flex items-center justify-center p-4">
+    <div class="relative max-w-2xl w-full bg-white rounded-3xl p-4 sm:p-6 shadow-2xl space-y-4">
+      <button onclick="closeLightbox()" class="absolute -top-4 -right-4 w-10 h-10 bg-white text-gray-700 rounded-full shadow-lg flex items-center justify-center font-bold hover:bg-rose-50 hover:text-rose-500 transition">&times;</button>
+      <div class="overflow-hidden rounded-2xl aspect-video bg-gray-100">
+        <img id="lightbox-img" src="" alt="Memory preview" class="w-full h-full object-cover">
+      </div>
+      <div class="flex items-center justify-between pt-1">
+        <div>
+          <h3 id="lightbox-title" class="font-serif-luxury text-xl font-bold text-gray-800"></h3>
+          <p id="lightbox-desc" class="text-xs sm:text-sm text-gray-500 mt-1"></p>
+        </div>
+        <button id="like-btn" onclick="likePhoto()" class="flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-rose-50 hover:bg-rose-100 text-rose-600 text-xs font-semibold transition">
+          <span>❤️</span> <span id="like-count">1</span>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <script src="js/config.js"></script>
+  <script src="js/main.js"></script>
+  <script>
+    function openLightbox(src, title, desc) {
+      document.getElementById('lightbox-img').src = src;
+      document.getElementById('lightbox-title').textContent = title;
+      document.getElementById('lightbox-desc').textContent = desc;
+      document.getElementById('lightbox').classList.remove('hidden');
+      sounds.playChime();
+    }
+
+    function closeLightbox() {
+      document.getElementById('lightbox').classList.add('hidden');
+    }
+
+    let likes = 1;
+    function likePhoto() {
+      likes++;
+      document.getElementById('like-count').textContent = likes;
+      triggerConfetti({ particleCount: 35, spread: 45 });
+    }
+
+    document.getElementById('lightbox').addEventListener('click', (e) => {
+      if (e.target.id === 'lightbox') closeLightbox();
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Chapter 5: The Grand Finale 🎁 - Happy Birthday!</title>
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Canvas Confetti CDN -->
+  <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.3/dist/confetti.browser.min.js"></script>
+  <!-- Custom Styles -->
+  <link rel="stylesheet" href="css/style.css">
+  <style>
+    @media print {
+      body * {
+        visibility: hidden;
+      }
+      #printable-voucher, #printable-voucher * {
+        visibility: visible;
+      }
+      #printable-voucher {
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 100%;
+      }
+      header, .glass-nav, button, #balloon-container {
+        display: none !important;
+      }
+    }
+  </style>
+</head>
+<body class="relative text-gray-800 selection:bg-rose-200 selection:text-rose-800">
+
+  <div id="balloon-container" class="fixed inset-0 pointer-events-none overflow-hidden z-0"></div>
+
+  <main class="relative z-10 min-h-screen pt-24 pb-24 px-4 sm:px-6 max-w-4xl mx-auto space-y-16">
+    
+    <!-- Header -->
+    <div class="text-center space-y-3">
+      <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-amber-100 text-amber-800 text-xs sm:text-sm font-semibold tracking-wide shadow-sm border border-amber-200">
+        <span>🎁</span> CHAPTER 5: THE GRAND FINALE
+      </div>
+      <h1 class="font-serif-luxury text-4xl sm:text-5xl md:text-6xl font-bold text-gray-900">
+        A Final Letter & Special Surprise
+      </h1>
+      <p class="max-w-xl mx-auto text-sm sm:text-base text-gray-600 font-light">
+        We've celebrated memories, blown candles, and shared laughter. Now comes the grand mystery waiting just for you.
+      </p>
+    </div>
+
+    <!-- Heartfelt Letter Stationery -->
+    <section class="glass-card bg-amber-50/40 rounded-3xl p-6 sm:p-12 shadow-2xl border border-amber-200/70 relative">
+      <!-- Decorative Stamp & Wax Seal -->
+      <div class="absolute top-6 right-6 flex flex-col items-center">
+        <div class="w-14 h-14 rounded-full bg-gradient-to-br from-red-600 to-rose-700 shadow-md border-2 border-red-800/40 flex items-center justify-center text-white font-serif-luxury font-bold text-xs tracking-wider">
+          SEALED
+        </div>
+        <span class="text-[10px] text-gray-400 mt-1 uppercase tracking-widest">With Love</span>
+      </div>
+
+      <div class="max-w-2xl space-y-6">
+        <span class="text-xs font-bold uppercase tracking-widest text-rose-500">A Personal Note Just For You</span>
+        
+        <div class="font-handwriting text-2xl sm:text-3xl text-gray-800 leading-relaxed space-y-4 whitespace-pre-line" data-config="letter">
+Dearest Navya,
+
+Happy, happy birthday! 🎂✨
+
+From the endless laughs and quiet conversations to all the spontaneous adventures, having you in my life has been one of my greatest joys.
+
+You bring so much light, warmth, and laughter wherever you go. Your kindness inspires everyone around you, and your smile has the superpower to brighten even the gloomiest day.
+
+May this new year of life bring you boundless joy, wild success, good health, and dreams that come true in ways even better than you imagined.
+
+Thank you for being so uniquely, wonderfully YOU.
+
+With all my love and warmest wishes,
+Always Yours ❤️
+        </div>
+      </div>
+    </section>
+
+    <!-- Birthday Song Player -->
+    <section class="song-player glass-card rounded-3xl p-5 sm:p-6 border border-rose-200/70 shadow-lg text-center">
+      <div class="text-3xl mb-2" aria-hidden="true">🎵</div>
+      <h2 class="font-serif-luxury text-xl sm:text-2xl font-bold text-gray-800">A Song For You</h2>
+      <p class="text-xs sm:text-sm text-gray-500 mt-1 mb-4">Choose your birthday vibe and press play.</p>
+
+      <div class="song-options" aria-label="Song choices">
+        <button type="button" class="song-choice active" data-song="song1">🎵 Song 1</button>
+        <button type="button" class="song-choice" data-song="song2">🎶 Song 2</button>
+      </div>
+
+      <audio id="birthday-audio" controls preload="none" class="birthday-audio" aria-label="Birthday song">
+        <source id="birthday-audio-source" src="" type="audio/mpeg">
+        Your browser does not support audio playback.
+      </audio>
+    </section>
+
+    <!-- The 3D Mystery Gift Box Section -->
+    <section class="text-center space-y-8">
+      <div class="space-y-2">
+        <h2 class="font-serif-luxury text-3xl font-bold text-gray-800">
+          The Mystery Birthday Box 🎁
+        </h2>
+        <p class="text-xs sm:text-sm text-gray-500">
+          Untie the golden ribbon to reveal your birthday surprise!
+        </p>
+      </div>
+
+      <!-- Animated Gift Box Component -->
+      <div class="max-w-md mx-auto">
+        <div id="gift-container" class="gift-box relative cursor-pointer mx-auto w-64 h-64 sm:w-72 sm:h-72 flex flex-col items-center justify-center group" onclick="unwrapGift()">
+          
+          <!-- Floating Ribbon Bow -->
+          <div id="gift-bow" class="gift-box-bounce absolute top-2 z-30 flex flex-col items-center">
+            <div class="text-6xl filter drop-shadow-md">🎀</div>
+          </div>
+
+          <!-- Gift Lid -->
+          <div id="gift-lid" class="gift-lid absolute top-12 z-20 w-52 sm:w-60 h-14 bg-gradient-to-r from-rose-500 via-pink-500 to-rose-600 rounded-t-2xl shadow-xl flex items-center justify-center border-b-4 border-rose-700">
+            <!-- Golden horizontal ribbon band -->
+            <div class="w-10 h-full bg-gradient-to-r from-amber-300 via-yellow-200 to-amber-400 shadow-sm"></div>
+          </div>
+
+          <!-- Gift Box Body -->
+          <div class="absolute top-24 z-10 w-48 sm:w-56 h-36 bg-gradient-to-r from-rose-600 via-pink-600 to-rose-700 rounded-b-2xl shadow-2xl flex items-center justify-center overflow-hidden border border-rose-400">
+            <!-- Golden Ribbon Vertical Band -->
+            <div class="w-10 h-full bg-gradient-to-r from-amber-300 via-yellow-200 to-amber-400 shadow-inner"></div>
+            <div class="absolute text-white/40 text-xs uppercase tracking-widest font-bold">Tap To Open</div>
+          </div>
+
+        </div>
+
+        <button id="unwrap-btn" onclick="unwrapGift()" class="glow-btn mt-6 px-8 py-3.5 rounded-full bg-gradient-to-r from-amber-500 via-rose-500 to-pink-500 text-white font-bold text-base shadow-xl hover:scale-105 active:scale-95 transition">
+          ✨ Tap To Unwrap Your Gift! 🎁
+        </button>
+      </div>
+
+      <!-- Unwrapped Surprise Revealed Ticket -->
+      <div id="gift-reveal-modal" class="hidden pt-6">
+        <div id="printable-voucher" class="glass-card bg-gradient-to-br from-amber-50 via-white to-rose-50 rounded-3xl p-6 sm:p-8 max-w-lg mx-auto shadow-2xl border-2 border-amber-300 text-left space-y-5 animate-fade-in relative overflow-hidden">
+          
+          <!-- Golden Badge Ribbon -->
+          <div class="absolute -right-12 -top-12 w-32 h-32 bg-gradient-to-br from-amber-400 to-amber-500 rotate-45 flex items-end justify-center pb-2 shadow-md">
+            <span class="text-white font-bold text-[10px] uppercase tracking-wider">VIP PASS</span>
+          </div>
+
+          <div class="flex items-center gap-3">
+            <span class="text-3xl">🎉</span>
+            <div>
+              <span class="text-xs font-bold uppercase tracking-wider text-amber-600">Official Birthday Certificate</span>
+              <h3 class="font-serif-luxury text-2xl font-bold text-gray-800" data-config="giftTitle">
+                An Unforgettable Celebration Day! 🎉
+              </h3>
+            </div>
+          </div>
+
+          <div class="p-4 rounded-2xl bg-white/80 border border-amber-200/60 shadow-inner space-y-2">
+            <p class="text-xs font-semibold text-gray-500 uppercase tracking-wider">Surprise Details:</p>
+            <p class="text-sm sm:text-base text-gray-800 font-medium leading-relaxed" data-config="giftDetails">
+              WAISE AAPKA GIFT TO PAHUCH GAYA HAI BUT YOU HAVE UNLIMITED LOVE AND SUPPORT.AND ALSO SOME UNLIMITED WISHES!
+            </p>
+          </div>
+
+          <!-- Bottom Ticket Barcode / Seal -->
+          <div class="pt-2 flex items-center justify-between border-t border-dashed border-amber-300 text-xs text-gray-500">
+            <div>
+              <p class="font-mono tracking-widest text-gray-700 font-bold">#BDAY-2026-VIP-STAR</p>
+              <p class="text-[10px] text-gray-400">Valid for Lifetime.</p>
+            </div>
+            <div class="text-2xl">✨🎂✨</div>
+          </div>
+
+          <!-- Actions -->
+          <div class="pt-3 flex flex-wrap gap-3 justify-center">
+            <button onclick="window.print()" class="px-5 py-2.5 rounded-xl bg-amber-500 hover:bg-amber-600 text-white font-semibold text-xs shadow-md flex items-center gap-1.5 transition">
+              <span>🖨️</span> Print / Save Keepsake
+            </button>
+            <a href="index.html" class="px-5 py-2.5 rounded-xl bg-rose-100 hover:bg-rose-200 text-rose-700 font-semibold text-xs flex items-center gap-1.5 transition">
+              <span>🔄</span> Replay Celebration
+            </a>
+          </div>
+
+        </div>
+      </div>
+
+    </section>
+
+    <!-- Bottom Replay & Navigation Controls -->
+    <div class="flex flex-col sm:flex-row items-center justify-between gap-4 pt-10 border-t border-rose-200/60">
+      <a href="page 4.html" class="w-full sm:w-auto px-6 py-3 rounded-2xl bg-white border border-gray-200 text-gray-700 font-semibold text-sm hover:bg-gray-50 flex items-center justify-center gap-2 transition">
+        ⬅️ Back to Wishes Wall
+      </a>
+      <div class="text-center sm:text-right">
+        <p class="text-xs text-gray-400">Hope this made your day as magical as you are! ❤️</p>
+        <a href="page 1.html" class="text-xs font-bold text-rose-500 hover:underline">
+          Return to Opening Chapter ➔
+        </a>
+      </div>
+    </div>
+
+  </main>
+
+  <script src="js/config.js"></script>
+  <script src="js/main.js"></script>
+  <script>
+    const songTracks = {
+      song1: "song/song%201.mp3",
+      song2: "song/song%202.mp3"
+    };
+
+    const audio = document.getElementById("birthday-audio");
+    const audioSource = document.getElementById("birthday-audio-source");
+    const songButtons = document.querySelectorAll(".song-choice");
+
+    songButtons.forEach((button) => {
+      button.addEventListener("click", () => {
+        const songKey = button.dataset.song;
+        const selectedSong = songTracks[songKey];
+
+        if (!selectedSong) return;
+
+        audio.pause();
+        audioSource.src = selectedSong;
+        audio.load();
+        audio.play();
+
+        songButtons.forEach((btn) => btn.classList.toggle("active", btn === button));
+      });
+    });
+
+    let isOpened = false;
+
+    function unwrapGift() {
+      if (isOpened) return;
+      isOpened = true;
+
+      const container = document.getElementById("gift-container");
+      container.classList.add("opened");
+
+      const btn = document.getElementById("unwrap-btn");
+      btn.innerHTML = "🎉 GIFT UNWRAPPED! 🎉";
+      btn.classList.add("bg-emerald-500");
+
+      triggerGrandConfetti();
+      sounds.playPop();
+      sounds.playChime();
+
+      setTimeout(() => {
+        document.getElementById("gift-reveal-modal").classList.remove("hidden");
+        document.getElementById("printable-voucher").scrollIntoView({ behavior: 'smooth', block: 'center' });
+      }, 700);
+    }
+  </script>
+</body>
+</html>
