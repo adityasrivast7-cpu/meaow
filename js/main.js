@@ -142,10 +142,10 @@
     form.hidden = true;
 
     const fields = {
-      'entry.1715234111': name,
-      'entry.25676796': message,
-      'entry.422234847': wishes,
-      'entry.1356354027': title
+      'entry.124876532': name,
+      'entry.841984641': message,
+      'entry.299070935': wishes,
+      'entry.480198571': title
     };
 
     Object.entries(fields).forEach(([fieldName, value]) => {
