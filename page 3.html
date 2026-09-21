@@ -259,6 +259,10 @@
       chip.innerHTML = `<span>⭐</span> "${text}"`;
       container.prepend(chip);
 
+      submitBirthdayResponse({ name: "Birthday visitor", wishes: text })
+        .catch(() => {
+          chip.title = "Saved on this page only; the response could not be sent.";
+        });
       sounds.playChime();
       triggerConfetti({ particleCount: 50 });
       input.value = "";

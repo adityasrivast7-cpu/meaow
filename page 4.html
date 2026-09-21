@@ -217,6 +217,11 @@
       const title = document.getElementById("note-title").value.trim();
       const body = document.getElementById("note-body").value.trim();
 
+      submitBirthdayResponse({ name: author, title, message: body })
+        .catch(() => {
+          window.alert("The note was added here, but could not be sent to the response sheet.");
+        });
+
       const card = document.createElement("div");
       card.className = "wish-item";
       card.dataset.category = "heartfelt";

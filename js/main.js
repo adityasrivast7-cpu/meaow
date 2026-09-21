@@ -127,6 +127,23 @@
 
   window.sounds = sounds;
 
+  const birthdayFormEndpoint = 'https://docs.google.com/forms/d/e/1FAIpQLSdzTDtwAF_SZ2d9fo1PuH2YyxZqWvp8Qj2_0_K573afxk_sKg/formResponse';
+
+  window.submitBirthdayResponse = function ({ name = '', message = '', wishes = '', title = '' } = {}) {
+    const formData = new URLSearchParams();
+    formData.set('entry.1715234111', name);
+    formData.set('entry.25676796', message);
+    formData.set('entry.422234847', wishes);
+    formData.set('entry.1356354027', title);
+
+    return fetch(birthdayFormEndpoint, {
+      method: 'POST',
+      mode: 'no-cors',
+      headers: { 'Content-Type': 'application/x-www-form-urlencoded;charset=UTF-8' },
+      body: formData.toString()
+    });
+  };
+
   window.triggerConfetti = function (options = {}) {
     if (typeof window.confetti !== 'function') {
       return;
