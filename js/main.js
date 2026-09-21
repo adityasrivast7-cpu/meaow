@@ -130,18 +130,37 @@
   const birthdayFormEndpoint = 'https://docs.google.com/forms/d/e/1FAIpQLSdzTDtwAF_SZ2d9fo1PuH2YyxZqWvp8Qj2_0_K573afxk_sKg/formResponse';
 
   window.submitBirthdayResponse = function ({ name = '', message = '', wishes = '', title = '' } = {}) {
-    const formData = new URLSearchParams();
-    formData.set('entry.1715234111', name);
-    formData.set('entry.25676796', message);
-    formData.set('entry.422234847', wishes);
-    formData.set('entry.1356354027', title);
+    const target = `birthday-response-${Date.now()}`;
+    const iframe = document.createElement('iframe');
+    iframe.name = target;
+    iframe.hidden = true;
 
-    return fetch(birthdayFormEndpoint, {
-      method: 'POST',
-      mode: 'no-cors',
-      headers: { 'Content-Type': 'application/x-www-form-urlencoded;charset=UTF-8' },
-      body: formData.toString()
+    const form = document.createElement('form');
+    form.action = birthdayFormEndpoint;
+    form.method = 'POST';
+    form.target = target;
+    form.hidden = true;
+
+    const fields = {
+      'entry.1715234111': name,
+      'entry.25676796': message,
+      'entry.422234847': wishes,
+      'entry.1356354027': title
+    };
+
+    Object.entries(fields).forEach(([fieldName, value]) => {
+      const input = document.createElement('input');
+      input.name = fieldName;
+      input.value = value;
+      form.appendChild(input);
     });
+
+    document.body.append(iframe, form);
+    form.submit();
+    window.setTimeout(() => {
+      iframe.remove();
+      form.remove();
+    }, 5000);
   };
 
   window.triggerConfetti = function (options = {}) {
